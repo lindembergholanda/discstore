@@ -1,0 +1,24 @@
+
+server:
+  port: 8081
+  servlet:
+    context-path: /discstore
+    
+spring:
+  application:
+    name: discstore
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+      dialect: org.hibernate.dialect.MySQL8Dialect
+#      dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+      
+  jmx:
+    enabled: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/discstore
+    username: microservices
+    password: mservices123

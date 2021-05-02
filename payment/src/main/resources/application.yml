@@ -1,0 +1,23 @@
+server:
+  port: 8082
+  servlet:
+    context-path: /payment
+    
+spring:
+  application:
+    name: payment
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+      dialect: org.hibernate.dialect.MySQL8Dialect
+#      dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+      
+  jmx:
+    enabled: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/payment
+    username: microservices
+    password: mservices123
