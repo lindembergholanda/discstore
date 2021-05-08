@@ -11,20 +11,24 @@ import org.springframework.stereotype.Service;
 import com.microservice.discstore.data.vo.DiscVO;
 import com.microservice.discstore.entity.Disc;
 import com.microservice.discstore.exception.ResourceNotFoundException;
+import com.microservice.discstore.message.DiscSendMessage;
 import com.microservice.discstore.repository.DiscRepository;
 
 @Service
 public class DiscService {
 
 	private final DiscRepository discRepository;
+	private final DiscSendMessage discSendMessage;
 
 	@Autowired
-	public DiscService(DiscRepository discRepository) {
+	public DiscService(DiscRepository discRepository, DiscSendMessage discSendMessage) {
 		this.discRepository = discRepository;
+		this.discSendMessage = discSendMessage;
 	}
 
 	public DiscVO create(DiscVO discVO) {
 		DiscVO discVoReturn = DiscVO.create(discRepository.save(Disc.create(discVO)));
+		discSendMessage.sendMessage(discVoReturn);
 		return discVoReturn;
 	}
 

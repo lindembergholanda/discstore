@@ -7,6 +7,10 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.modelmapper.ModelMapper;
+
+import com.discstore.payment.data.vo.DiscVO;
+
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -32,4 +36,7 @@ public class Disc implements Serializable {
 	@Column(name = "available_quantity", nullable = false, length = 10)
 	private Integer available_quantity;
 
+	public static Disc create(DiscVO discVO) {
+		return new ModelMapper().map(discVO, Disc.class);
+	}
 }

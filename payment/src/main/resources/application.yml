@@ -21,3 +21,14 @@ spring:
     url: jdbc:mysql://localhost:3306/payment
     username: microservices
     password: mservices123
+    
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: admin
+    password: admin
+    
+discstore:
+  rabbitmq:
+    exchange: discstore.exchange
+    queue: discstore.disc.queue
