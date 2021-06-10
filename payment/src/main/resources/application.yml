@@ -32,3 +32,16 @@ discstore:
   rabbitmq:
     exchange: discstore.exchange
     queue: discstore.disc.queue
+    
+security:
+  jwt:
+    token:
+      secret-key: chave_microservices
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/registry/eureka
+      
